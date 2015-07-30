@@ -1,83 +1,57 @@
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Flaskr</title>
+<html lang="en" class="no-js">
+	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
-        <meta name="description" content="Responsive Image Gallery with jQuery" />
-        <meta name="keywords" content="jquery, carousel, image gallery, slider, responsive, flexible, fluid, resize, css3" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Loading Effects for Grid Items | Demo 2</title>
+		<meta name="description" content="Loading Effects for Grid Items with CSS Animations" />
+		<meta name="keywords" content="css animation, loading effect, google plus, grid items, masonry" />
 		<meta name="author" content="Codrops" />
 		<link rel="shortcut icon" href="../favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/elastislide.css" />
-		<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&v1' rel='stylesheet' type='text/css' />
-		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css' />
-		<noscript>
-			<style>
-				.es-carousel ul{
-					display:block;
-				}
-			</style>
-		</noscript>
-		<script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">	
-			<div class="rg-image-wrapper">
-				{{if itemsCount > 1}}
-					<div class="rg-image-nav">
-						<a href="#" class="rg-image-nav-prev">Previous Image</a>
-						<a href="#" class="rg-image-nav-next">Next Image</a>
-					</div>
-				{{/if}}
-				<div class="rg-image"></div>
-				<div class="rg-loading"></div>
-				<div class="rg-caption-wrapper">
-					<div class="rg-caption" style="display:none;">
-						<p></p>
-					</div>
-				</div>
-			</div>
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-7243260-2']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
 		</script>
-    </head>
-    <body>
+	</head>
+	<body>
 		<div class="container">
-			<div class="header">
-				<a href="http://tympanus.net/Development/Elastislide/"><span>&laquo; Previous Demo: </span>Elastislide</a>
-				<span class="right_ab">
-					<a href="http://www.flickr.com/photos/smanography/" target="_blank">Images by Shermeee</a>
-					<a href="http://creativecommons.org/licenses/by/2.0/deed.en_GB">CC BY 2.0</a>
-					<a href="http://tympanus.net/codrops/2011/09/20/responsive-image-gallery/"><strong>back to the Codrops post</strong></a>
-				</span>
-				<div class="clr"></div>
-			</div><!-- header -->
-			
-			<div class="content">
-				<h1>Responsive Image Gallery <span>A jQuery image gallery with a thumbnail carousel</span></h1>
-				<div id="rg-gallery" class="rg-gallery">
-					<div class="rg-thumbs">
-						<!-- Elastislide Carousel Thumbnail Viewer -->
-						<div class="es-carousel-wrapper">
-							<div class="es-nav">
-								<span class="es-nav-prev">Previous</span>
-								<span class="es-nav-next">Next</span>
-							</div>
-							<div class="es-carousel">
-								<ul>
-									<% imageUrls.forEach(function(element){ %>
-									<li><a href="#"><img src="<%= element.url %>" data-large="<%= element.url %>" /></a></img></li>
-									<% }) %>
-								</ul>
-							</div>
-						</div>
-						<!-- End Elastislide Carousel Thumbnail Viewer -->
-					</div><!-- rg-thumbs -->
-				</div><!-- rg-gallery -->
-			</div><!-- content -->
-		</div><!-- container -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
-		<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-		<script type="text/javascript" src="js/jquery.elastislide.js"></script>
-		<script type="text/javascript" src="js/gallery.js"></script>
-    </body>
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Tutorials/ExpandingSearchBar/"><span>Previous Demo</span></a>
+				<span class="right"><a href="http://dribbble.com/erikamackley">Illustrations by by Erika Mackley</a><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=15677"><span>Back to the Codrops Article</span></a></span>
+			</div>
+			<header>
+				<h1>Loading Effects for Grid Items <span>with CSS Animations</span></h1>
+			</header>
+			<ul class="grid effect-2" id="grid">
+				<% imageUrls.forEach(function(element){ %>
+					<a href="<%= element.url %>"><img src="<%= element.url %>"></a>
+				<% }) %>
+			</ul>
+		</div>
+		<script src="js/masonry.pkgd.min.js"></script>
+		<script src="js/imagesloaded.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/AnimOnScroll.js"></script>
+		<script>
+			new AnimOnScroll( document.getElementById( 'grid' ), {
+				minDuration : 0.4,
+				maxDuration : 0.7,
+				viewportFactor : 0.2
+			} );
+		</script>
+		<!-- For the demo ad -->   
+		<script src="http://tympanus.net/codrops/adpacks/demoad.js"></script>
+	</body>
 </html>
